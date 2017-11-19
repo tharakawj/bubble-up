@@ -3,14 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "shortid": "^2.2.8"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start-server": "node server.js",
+    "start-client": "react-scripts start",
+    "start": "npm-run-all --parallel start-server start-client",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "npm-run-all": "^4.1.2"
   }
 }
