@@ -1,26 +1,21 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import TopicList from "./containers/TopicList";
+import NewTopic from "./containers/NewTopic";
+import EditTopic from "./containers/EditTopic";
 
 class App extends Component {
-  componentDidMount() {
-    fetch("http://localhost:3001/")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      });
-  }
-
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Router>
+          <div>
+            <Route exact path="/" component={TopicList} />
+            <Route path="/new" component={NewTopic} />
+            <Route path="/topics/:id" component={EditTopic} />
+          </div>
+        </Router>
       </div>
     );
   }
