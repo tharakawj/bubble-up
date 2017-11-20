@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import TopicList from "./containers/TopicList";
+import HomePage from "./containers/HomePage";
 import NewTopic from "./containers/NewTopic";
 import EditTopic from "./containers/EditTopic";
+import NotFoundPage from "./containers/NotFoundPage";
 
 class App extends Component {
   render() {
@@ -11,9 +12,12 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <Route exact path="/" component={TopicList} />
-            <Route path="/new" component={NewTopic} />
-            <Route path="/topics/:id" component={EditTopic} />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/new" component={NewTopic} />
+              <Route path="/topics/:id" component={EditTopic} />
+              <Route component={NotFoundPage} />
+            </Switch>
           </div>
         </Router>
       </div>
