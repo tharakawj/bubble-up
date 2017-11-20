@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
 
+import store from "./store";
 import HomePage from "./containers/HomePage";
 import NewTopic from "./containers/NewTopic";
 import EditTopic from "./containers/EditTopic";
@@ -9,7 +11,7 @@ import NotFoundPage from "./containers/NotFoundPage";
 class App extends Component {
   render() {
     return (
-      <div>
+      <Provider store={store}>
         <Router>
           <div>
             <Switch>
@@ -20,7 +22,7 @@ class App extends Component {
             </Switch>
           </div>
         </Router>
-      </div>
+      </Provider>
     );
   }
 }

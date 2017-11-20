@@ -1,5 +1,12 @@
 import React from "react";
+import { connect } from "react-redux";
 
-const HomePage = () => <div>Topic List</div>;
+const HomePage = ({ value }) => <div>Topic List {value}</div>;
 
-export default HomePage;
+function mapStateToProps(state) {
+  return {
+    value: state.value
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);
