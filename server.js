@@ -19,14 +19,12 @@ const topics = {
   nYrnfYEv: {
     id: "nYrnfYEv",
     text: "Cultural accumulation vs. cultural decay",
-    upvotes: 19,
-    downvotes: 1
+    upvotes: 19
   },
   a4vhAoFG: {
     id: "a4vhAoFG",
     text: "Silicon Valley could be the next hotspot for SEC whistleblowers",
-    upvotes: 45,
-    downvotes: 0
+    upvotes: 45
   }
 };
 
@@ -36,9 +34,7 @@ function isValidTopic(topic) {
     (isUndefined(topic.text) ||
       (topic.text && typeof topic.text === "string" && topic.text.trim())) &&
     (isUndefined(topic.upvotes) ||
-      (isInteger(topic.upvotes) && topic.upvotes >= 0)) &&
-    (isUndefined(topic.downvotes) ||
-      (isInteger(topic.downvotes) && topic.downvotes >= 0))
+      (isInteger(topic.upvotes) && topic.upvotes >= 0))
   );
 }
 
@@ -60,8 +56,7 @@ app.post("/api/topics", (req, res) => {
     const topic = {
       id: shortid.generate(),
       text: req.body.text,
-      upvotes: 0,
-      downvotes: 0
+      upvotes: 0
     };
     topics[topic.id] = topic;
     res.send(topic);
@@ -78,9 +73,6 @@ app.put("/api/topics/:id", (req, res) => {
       topic.upvotes = isUndefined(req.body.upvotes)
         ? topic.upvotes
         : req.body.upvotes;
-      topic.downvotes = isUndefined(req.body.downvotes)
-        ? topic.downvotes
-        : req.body.downvotes;
       res.send(topic);
     } else {
       res.status(400).send({ error: "Bad request!" });

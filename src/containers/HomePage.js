@@ -9,7 +9,7 @@ const HomePage = ({ topics, loading }) => (
     <ul>
       {topics.map(topic => (
         <li key={topic.id}>
-          {topic.text} ({topic.upvotes - topic.downvotes})
+          {topic.text} ({topic.upvotes})
         </li>
       ))}
     </ul>
