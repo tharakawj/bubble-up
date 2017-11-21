@@ -1,6 +1,6 @@
 import * as types from "../constants/actionTypes";
 
-const initialState = {
+export const initialState = {
   topics: {
     error: null,
     loading: false,
