@@ -43,7 +43,7 @@ function isValidTopic(topic) {
 }
 
 app.get("/api/topics", (req, res) => {
-  res.send(topics);
+  res.send(Object.values(topics));
 });
 
 app.get("/api/topics/:id", (req, res) => {

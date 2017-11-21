@@ -1,11 +1,26 @@
 import React from "react";
 import { connect } from "react-redux";
 
-const HomePage = ({ value }) => <div>Topic List {value}</div>;
+import { getHomeTopics } from "../selectors";
+
+const HomePage = ({ topics, loading }) => (
+  <div>
+    Topic List {loading && "Loading..."}
+    <ul>
+      {topics.map(topic => (
+        <li key={topic.id}>
+          {topic.text} ({topic.upvotes - topic.downvotes})
+        </li>
+      ))}
+    </ul>
+  </div>
+);
 
 function mapStateToProps(state) {
   return {
-    value: state.value
+    topics: getHomeTopics(state),
+    loading: state.topics.loading,
+    error: state.topics.error
   };
 }
 
