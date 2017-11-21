@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { getHomeTopics } from "../selectors";
+import { TOPICS_IN_HOMEPAGE } from "../constants/appConstants";
 
 const HomePage = ({ topics, loading }) => (
   <div>
@@ -18,7 +19,7 @@ const HomePage = ({ topics, loading }) => (
 
 function mapStateToProps(state) {
   return {
-    topics: getHomeTopics(state),
+    topics: getHomeTopics(state, TOPICS_IN_HOMEPAGE),
     loading: state.topics.loading,
     error: state.topics.error
   };
