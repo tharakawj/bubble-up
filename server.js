@@ -82,6 +82,21 @@ app.put("/api/topics/:id", (req, res) => {
   }
 });
 
+app.post("/api/topics/:id/vote", (req, res) => {
+  const topic = topics[req.params.id];
+  if (topic) {
+    const direction = req.body.direction;
+    if (direction && isInteger(direction)) {
+      topic.upvotes = topic.upvotes + (direction > 0 ? 1 : -1);
+      res.send(topic);
+    } else {
+      res.status(400).send({ error: "Bad request!" });
+    }
+  } else {
+    res.status(404).send({ error: "Topic not found!" });
+  }
+});
+
 app.delete("/api/topics/:id", (req, res) => {
   if (topics[req.params.id]) {
     delete topics[req.params.id];

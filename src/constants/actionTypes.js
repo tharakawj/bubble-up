@@ -3,3 +3,8 @@ export const FETCH_TOPICS_REQUEST = "app/topics/FETCH_TOPICS_REQUEST";
 export const FETCH_TOPICS_PROGRESSING = "app/topics/FETCH_TOPICS_PROGRESSING";
 export const FETCH_TOPICS_SUCCEEDED = "app/topics/FETCH_TOPICS_SUCCEEDED";
 export const FETCH_TOPICS_FAILED = "app/topics/FETCH_TOPICS_FAILED";
+
+// VOTE TOPIC
+export const VOTE_TOPICS_REQUEST = "app/topics/VOTE_TOPICS_REQUEST";
+export const VOTE_TOPICS_SUCCEEDED = "app/topics/VOTE_TOPICS_SUCCEEDED";
+export const VOTE_TOPICS_FAILED = "app/topics/VOTE_TOPICS_FAILED";

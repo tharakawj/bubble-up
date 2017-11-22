@@ -22,8 +22,20 @@ function request(url, options = {}) {
 }
 
 export const get = url => request(url, { method: "GET" });
-export const post = (url, body) => request(url, { method: "POST", body });
-export const put = (url, body) => request(url, { method: "PUT", body });
+
+export const post = (url, body) =>
+  request(url, {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" }
+  });
+
+export const put = (url, body) =>
+  request(url, {
+    method: "PUT",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" }
+  });
 export const del = url => request(url, { method: "DELETE" });
 
 export default request;
