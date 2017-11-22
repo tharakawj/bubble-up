@@ -8,3 +8,6 @@ export const FETCH_TOPICS_FAILED = "app/topics/FETCH_TOPICS_FAILED";
 export const VOTE_TOPICS_REQUEST = "app/topics/VOTE_TOPICS_REQUEST";
 export const VOTE_TOPICS_SUCCEEDED = "app/topics/VOTE_TOPICS_SUCCEEDED";
 export const VOTE_TOPICS_FAILED = "app/topics/VOTE_TOPICS_FAILED";
+
+// TOPIC CREATED
+export const TOPICS_CREATED = "app/topics/TOPICS_CREATED";

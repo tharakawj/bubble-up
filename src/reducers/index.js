@@ -44,7 +44,7 @@ function reducer(state = initialState, action) {
         }
       };
 
-    //Vote topic
+    // Vote topic
     case types.VOTE_TOPICS_REQUEST:
       // Be optimistic about the API call and update the state
       return state.topics.data[action.id]
@@ -90,6 +90,16 @@ function reducer(state = initialState, action) {
             }
           }
         : state;
+
+    // Topic Created
+    case types.TOPICS_CREATED:
+      return {
+        ...state,
+        topics: {
+          ...state.topics,
+          data: { ...state.topics.data, [action.topic.id]: action.topic }
+        }
+      };
 
     default:
       return state;

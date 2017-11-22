@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { getHomeTopics } from "../selectors";
 import { upvoteTopic, downvoteTopic } from "../actions";
@@ -9,6 +10,7 @@ const HomePage = props => {
   const { topics, loading } = props;
   return (
     <div>
+      <Link to="/new">Post Topic</Link>
       Topic List {loading && "Loading..."}
       <ul>
         {topics.map(topic => (
