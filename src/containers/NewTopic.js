@@ -46,4 +46,6 @@ class NewTopic extends Component {
   }
 }
 
+export { NewTopic };
+
 export default connect(null, { topicCreated })(NewTopic);
