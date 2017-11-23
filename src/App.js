@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
+import Header from "./component/Header";
+
 import store from "./store";
 import { fetchTopics } from "./actions";
 import HomePage from "./containers/HomePage";
@@ -15,7 +17,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router>
-          <div>
+          <div className="container">
+            <Header />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/new" component={NewTopic} />
