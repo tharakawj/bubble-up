@@ -22,17 +22,21 @@ const HomePage = props => {
           <span className="glyphicon glyphicon-fire" />Trending
         </h2>
       </div>
-      <ul>
-        {topics.map(topic => (
-          <li key={topic.id}>
-            <Topic
-              topic={topic}
-              onUpvote={props.upvoteTopic}
-              onDownvote={props.downvoteTopic}
-            />
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        "Loading..."
+      ) : (
+        <ul>
+          {topics.map(topic => (
+            <li key={topic.id}>
+              <Topic
+                topic={topic}
+                onUpvote={props.upvoteTopic}
+                onDownvote={props.downvoteTopic}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

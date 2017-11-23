@@ -53,6 +53,19 @@
   font-weight: 500;
 }
 
+.new-topic .btn .glyphicon {
+  margin-right: 5px;
+}
+
+.new-topic textarea {
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  width: 100px;
+}
+
 .clearleft {
   clear: left;
 }

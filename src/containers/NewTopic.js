@@ -28,9 +28,12 @@ class NewTopic extends Component {
 
   render() {
     return (
-      <div>
-        New Topic
-        <Link to="/">Back</Link>
+      <div className="new-topic">
+        <Link to="/" className="btn btn-default">
+          <span className="glyphicon glyphicon-arrow-left" />
+          Back
+        </Link>
+        <h3>Post new topic</h3>
         <TopicForm
           buttonText="Post"
           text={this.state.text}
