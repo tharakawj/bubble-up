@@ -37,6 +37,7 @@
 .topic p {
   margin-left: 40px;
   padding-top: 4px;
+  word-wrap: break-word;
 }
 
 .vote-control {
@@ -58,7 +59,7 @@
 }
 
 .new-topic textarea {
-  height: 70px;
+  height: 100px;
   margin-bottom: 20px;
 }
 
@@ -68,4 +69,8 @@
 
 .clearleft {
   clear: left;
+}
+
+.error {
+  color: red;
 }
