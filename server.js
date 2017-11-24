@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fallback = require("express-history-api-fallback");
 
 const isInteger = require("lodash/isinteger");
 const isUndefined = require("lodash/isundefined");
@@ -10,10 +11,12 @@ const app = express();
 
 app.use(bodyParser.json());
 
-const corsOptions = {
-  origin: "http://localhost:3000"
-};
-app.use(cors(corsOptions));
+if (process.env.NODE_ENV !== "production") {
+  const corsOptions = {
+    origin: "http://localhost:3000"
+  };
+  app.use(cors(corsOptions));
+}
 
 const topics = {
   nYrnfYEv: {
@@ -106,6 +109,17 @@ app.delete("/api/topics/:id", (req, res) => {
   }
 });
 
-app.listen(3001, () =>
-  console.log("Bubble-Up development mock server listening on port 3001!")
-);
+// server static files in production
+if (process.env.NODE_ENV === "production") {
+  const root = __dirname + "/build";
+  app.use(express.static(root));
+  app.use(fallback("index.html", { root }));
+}
+
+const serverPort = process.env.PORT || 3001;
+
+app.listen(serverPort, error => {
+  if (!error) {
+    console.log(`Bubble Up is running on port: ${serverPort}!`);
+  }
+});

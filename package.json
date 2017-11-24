@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "cross-env": "^5.1.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-16": "^1.1.0",
+    "express-history-api-fallback": "^2.2.1",
     "lodash": "^4.17.4",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -24,12 +26,17 @@
     "start": "npm-run-all --parallel start-server start-client",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build",
+    "serve": "npm run build && cross-env NODE_ENV=production node server.js"
   },
   "devDependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "npm-run-all": "^4.1.2"
+  },
+  "engines": {
+    "node": "8.1.3"
   }
 }

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001/api";
+import config from "../config";
 
 function parseJSON(response) {
   return response.json();
@@ -15,7 +15,7 @@ function checkStatus(response) {
 }
 
 function request(url, options = {}) {
-  const completeUrl = `${BASE_URL}/${url}`;
+  const completeUrl = `${config.BASE_URL}/${url}`;
   return fetch(completeUrl, options)
     .then(checkStatus)
     .then(parseJSON);
