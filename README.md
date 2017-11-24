@@ -14,7 +14,7 @@ This project was bootstrapped using [Create React App](https://github.com/facebo
 2. Run `yarn install` in the bubble-up folder
 3. Now you can run the application in development mode with `yarn start` command or build the app for production with `yarn run build`
 
-You run all the tests with `yarn test` command.
+You can run all the tests with `yarn test` command.
 
 (You can use same commands with `npm` as well.)
 
