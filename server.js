@@ -39,6 +39,12 @@ const topics = {
     text:
       "Firefox just released a new ultra-fast web browser to take on Google Chrome - Mashable",
     upvotes: 8
+  },
+  r6vhAoFG: {
+    id: "t7vhAoFG",
+    text:
+      "AltSchool wants to change how kids learn, but fears have surfaced that it’s failing students - TechCrunch",
+    upvotes: 0
   }
 };
 
