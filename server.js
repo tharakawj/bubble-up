@@ -18,13 +18,27 @@ if (process.env.NODE_ENV !== "production") {
 const topics = {
   nYrnfYEv: {
     id: "nYrnfYEv",
-    text: "Cultural accumulation vs. cultural decay",
-    upvotes: 19
+    text:
+      "Tesla’s New Second-generation Roadster Will Be the Quickest Production Car Ever Made. ‘Period’ - The Verge",
+    upvotes: 12
   },
   a4vhAoFG: {
     id: "a4vhAoFG",
-    text: "Silicon Valley could be the next hotspot for SEC whistleblowers",
-    upvotes: 45
+    text:
+      "Apple acquired augmented reality headset startup Vrvana for $30M - TechCrunch",
+    upvotes: 4
+  },
+  sDrnfYEv: {
+    id: "sDrnfYEv",
+    text:
+      "Instagram adds a request button for friends to crash your live stream - The Verge",
+    upvotes: 2
+  },
+  t7vhAoFG: {
+    id: "t7vhAoFG",
+    text:
+      "Firefox just released a new ultra-fast web browser to take on Google Chrome - Mashable",
+    upvotes: 8
   }
 };
 
