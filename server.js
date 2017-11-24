@@ -2,9 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const fallback = require("express-history-api-fallback");
-
-const isInteger = require("lodash/isinteger");
-const isUndefined = require("lodash/isundefined");
 const shortid = require("shortid");
 
 const app = express();
@@ -31,13 +28,15 @@ const topics = {
   }
 };
 
+const isUndefined = value => value === undefined;
+
 function isValidTopic(topic) {
   return (
     typeof topic === "object" &&
     (isUndefined(topic.text) ||
       (topic.text && typeof topic.text === "string" && topic.text.trim())) &&
     (isUndefined(topic.upvotes) ||
-      (isInteger(topic.upvotes) && topic.upvotes >= 0))
+      (Number.isInteger(topic.upvotes) && topic.upvotes >= 0))
   );
 }
 
@@ -89,7 +88,7 @@ app.post("/api/topics/:id/vote", (req, res) => {
   const topic = topics[req.params.id];
   if (topic) {
     const direction = req.body.direction;
-    if (direction && isInteger(direction)) {
+    if (direction && Number.isInteger(direction)) {
       topic.upvotes = topic.upvotes + (direction > 0 ? 1 : -1);
       res.send(topic);
     } else {
